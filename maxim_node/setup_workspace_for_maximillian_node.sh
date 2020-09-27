@@ -1,14 +1,17 @@
 #!/usr/bin/env bash
 
-maxim_node_path="${HOME}/Desktop/personal_learning/javascript/nodeJS/maximillian_node/nodejs-complete-guide"
+export MAXIM_NODE_PATH="${HOME}/Desktop/personal_learning/javascript/nodeJS/maximillian_node/nodejs-complete-guide"
+export APPLESCRIPT=$(pwd)/iterm_open_bottom_pane.applescript
 
 goToMax() {
-	cd $maxim_node_path
+	cd $MAXIM_NODE_PATH
 }
 
-goToMax
-
-. ./iterm_open_bottom_pane.applescript
+export goToMax=goToMax
 
 goToMax
+
+#.${APPLESCRIPT}
+
+#goToMax
 
