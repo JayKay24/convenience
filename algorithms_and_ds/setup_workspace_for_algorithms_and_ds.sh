@@ -4,3 +4,5 @@ ALGO_PATH=${HOME}/Desktop/personal_learning/algorithms_and_data_structures/codin
 
 cd $ALGO_PATH
 
+code .
+
