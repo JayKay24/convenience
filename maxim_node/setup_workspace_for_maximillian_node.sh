@@ -4,3 +4,5 @@ MAXIM_NODE_PATH="${HOME}/Desktop/personal_learning/javascript/nodeJS/maximillian
 
 cd $MAXIM_NODE_PATH
 
+code .
+
