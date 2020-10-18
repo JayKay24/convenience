@@ -1,4 +1,6 @@
 alias goToMaxNode="source ${HOME}/Desktop/convenience/maxim_node/setup_workspace_for_maximillian_node.sh"
 alias goToStephMicroservices="source ${HOME}/Desktop/convenience/stephgrider_microservices/setup_workspace_for_stephmicroservices.sh"
 alias goToAlgorithms="source ${HOME}/Desktop/convenience/algorithms_and_ds/setup_workspace_for_algorithms_and_ds.sh"
+alias goToCSSEssentialTraining="source ${HOME}/Desktop/convenience/css_essential_training/setup_workspace_for_css.sh"
+alias goToAdvancedGit="source ${HOME}/Desktop/convenience/advanced_git/setup_workspace_for_advanced_git.sh"
 
