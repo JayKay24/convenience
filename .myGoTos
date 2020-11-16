@@ -3,3 +3,5 @@ alias goToStephMicroservices="source ${HOME}/Desktop/convenience/stephgrider_mic
 alias goToAlgorithms="source ${HOME}/Desktop/convenience/algorithms_and_ds/setup_workspace_for_algorithms_and_ds.sh"
 alias goToCSSEssentialTraining="source ${HOME}/Desktop/convenience/css_essential_training/setup_workspace_for_css.sh"
 
+# my custom tools
+source "${HOME}/Desktop/convenience/tools/my_custom_tools.sh"
