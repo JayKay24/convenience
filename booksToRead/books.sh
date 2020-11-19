@@ -10,3 +10,7 @@ openBashPocketBook() {
   open "${HOME}/$books_path/operating_systems/unix/bash/bash-command-line-shell-scripts-pocket.pdf"
 }
 
+openComposingSoftware() {
+  open "${HOME}/$books_path/architecures/front-end/javascript/composing-software-exploration-programming.epub"
+}
+
