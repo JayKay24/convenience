@@ -24,11 +24,26 @@ makeDirectoryAndEnter() {
 
 searchForThisPhrase() {
   pattern=$1
+  fileToSearch=$2
 
-  if [[ -n $pattern ]];
+  if [[ -n $pattern ]] && [[ -n $fileToSearch ]];
   then
-	grep -inE $pattern
+	grep -inE $pattern $fileToSearch
   else
-	echo "Please provide a regex pattern to use in the search"
+	echo "Please provide both a regex pattern and file to use in the search"
+  fi
+}
+
+searchAndReplace() {
+  pattern=$1
+  fileToUse=$2
+
+  echo $pattern $replaceWith
+
+  if [[ -n $pattern ]] && [[ -n $fileToUse ]];
+  then
+	sed -e "s/$pattern/g" $fileToUse
+  else
+	echo "Please provide the pattern and file to use"
   fi
 }

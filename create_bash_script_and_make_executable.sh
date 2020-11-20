@@ -1,7 +1,14 @@
 #!/usr/bin/env bash
 
-touch $1
-chmod +x $1
-printf "#!/usr/bin/env bash\n\n\n" > $1
-vim $1
+fileName=$1
+
+if [[ -n $fileName ]];
+then
+  touch $fileName
+  chmod +x $fileName
+  printf "#!/usr/bin/env bash\n\n\n" > $fileName
+  vim $fileName
+else
+  echo "Please provide a file name"
+fi
 
