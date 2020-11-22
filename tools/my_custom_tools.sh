@@ -3,12 +3,7 @@
 findThisFile() {
   fileType=$2
 
-  if [[ -z $fileType ]];
-  then
-	find . -iregex $1 -type f -print
-  else
-	find . -iregex $1 -type d -print
-  fi
+  find . -iregex $1 -type ${fileType:-f} -print
 }
 
 makeDirectoryAndEnter() {
