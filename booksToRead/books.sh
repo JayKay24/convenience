@@ -14,3 +14,6 @@ openComposingSoftware() {
   open "${HOME}/$books_path/architecures/front-end/javascript/composing-software-exploration-programming.epub"
 }
 
+openDistributedSystemsForPractitioners() {
+  open "${HOME}/$books_path/software_development/system_design/distributed-systems-for-practitioners.epub"
+}
