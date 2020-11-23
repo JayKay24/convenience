@@ -6,5 +6,7 @@ cd $STEPH_GRIDER_MICROSERVICES
 
 open -a "Postman"
 
+open -a "Docker"
+
 code .
 
