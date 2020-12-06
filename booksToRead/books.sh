@@ -15,3 +15,7 @@ openComposingSoftware() {
 openDistributedSystemsForPractitioners() {
   open "$BOOKS_PATH/software_development/system_design/distributed-systems-for-practitioners.epub"
 }
+
+openAutomatingWithNodeJS() {
+  open "$BOOKS_PATH/architecures/backend/nodeJs/automating-with-nodejs.epub"
+}
