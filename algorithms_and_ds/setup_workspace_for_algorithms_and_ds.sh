@@ -4,7 +4,7 @@ ALGO_PATH=$PERSONAL_LEARNING/algorithms_and_data_structures/coding_challenges
 
 cd $ALGO_PATH
 
-open $BOOKS_PATH/algorithms/grokking-algorithms-illustrated-programmers-curious.epub
+open $BOOKS_PATH/computer_science/algorithms/grokking-algorithms-illustrated-programmers-curious.epub
 
 code .
 

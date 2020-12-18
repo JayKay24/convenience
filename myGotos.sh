@@ -10,6 +10,7 @@ alias goToAlgorithms="source $CONVENIENCE_DIR/algorithms_and_ds/setup_workspace_
 alias goToBooks="cd $HOME/Downloads/books"
 alias goToSolidBook="source $CONVENIENCE_DIR/solid_architecture/setup_solid_workspace.sh"
 alias goToNodeJSAutomation="source $CONVENIENCE_DIR/node_automation/automation.sh"
+alias goToReactTypescript="source $CONVENIENCE_DIR/react_typescript/setup_workspace_for_react_and_typescript.sh"
 
 # my custom tools
 source "$CONVENIENCE_DIR/tools/my_custom_tools.sh"
