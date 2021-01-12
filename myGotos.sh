@@ -2,6 +2,7 @@
 export PERSONAL_LEARNING="$HOME/Desktop/personal_learning"
 export BOOKS_PATH="$HOME/Downloads/books"
 export CONVENIENCE_DIR="$HOME/Desktop/convenience"
+export DOWNLOADS="$HOME/Downloads"
 
 # my custom aliases for frequently visited projects
 alias goToMaxNode="source $CONVENIENCE_DIR/maxim_node/setup_workspace_for_maximillian_node.sh"
