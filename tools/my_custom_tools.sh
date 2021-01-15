@@ -42,3 +42,9 @@ searchAndReplace() {
 	echo "Please provide the pattern and file to use"
   fi
 }
+
+getCurrentWeather() {
+  city=$1
+
+  curl --max-time 1 "http://wttr.in/${city:-'nairobi,ke'}"
+}
