@@ -48,3 +48,14 @@ getCurrentWeather() {
 
   curl --max-time 1 "http://wttr.in/${city:-'nairobi,ke'}"
 }
+
+listDirAndSearch() {
+  pattern=$1
+
+  if [[ -n $pattern ]];
+  then
+	ls -lap | grep -inE $pattern
+  else
+	echo "Please provide the pattern to use in the search"
+  fi
+}
