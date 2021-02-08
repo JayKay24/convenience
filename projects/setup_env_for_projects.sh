@@ -56,3 +56,13 @@ goToStephMicroservices() {
 
   code .
 }
+
+goToDistributedSystemsWithNodeJs() {
+  DISTR_SYS_PATH="$PERSONAL_LEARNING/javascript/nodeJS/distributed_systems_with_nodejs"
+
+  cd $DISTR_SYS_PATH
+
+  openDistributedSystemsWithNodeJs
+
+  code .
+}

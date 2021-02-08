@@ -19,3 +19,8 @@ openDistributedSystemsForPractitioners() {
 openAutomatingWithNodeJS() {
   open "$BOOKS_PATH/architecures/backend/nodeJs/automating-with-nodejs.epub"
 }
+
+openDistributedSystemsWithNodeJs() {
+  open "$BOOKS_PATH/architecures/backend/nodeJs/distributed-systems-nodejs-enterprise-ready.epub"
+}
+
