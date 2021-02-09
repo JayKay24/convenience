@@ -46,17 +46,23 @@ goToAlgorithms() {
 }
 
 goToStephMicroservices() {
-  STEPH_GRIDER_MICROSERVICES=$PERSONAL_LEARNING/microservices/ticketing
+  STEPH_GRIDER_MICROSERVICES="$PERSONAL_LEARNING/microservices/ticketing"
+  TO_SLEEP=$1
 
   cd $STEPH_GRIDER_MICROSERVICES
 
-  open -a "Postman"
+  if [[ -n $TO_SLEEP ]];
+  then
+	open -a "Postman"
 
-  open -a "Docker"
+	open -a "Docker"
 
-  open "https://www.udemy.com/course/microservices-with-node-js-and-react/learn"
+	sleep 90
 
-  code .
+	open "https://www.udemy.com/course/microservices-with-node-js-and-react/learn"
+
+	code .
+  fi
 }
 
 goToDistributedSystemsWithNodeJs() {
