@@ -36,11 +36,12 @@ goToMaxNode() {
 }
 
 goToAlgorithms() {
-  ALGO_PATH=$PERSONAL_LEARNING/algorithms_and_data_structures/coding_challenges
+  ALGO_PATH="$PERSONAL_LEARNING/algorithms_and_data_structures/coding_challenges"
+  UDEMY="https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/learn"
 
   cd $ALGO_PATH
 
-  open $BOOKS_PATH/computer_science/algorithms/grokking-algorithms-illustrated-programmers-curious.epub
+  open $UDEMY
 
   code .
 }
