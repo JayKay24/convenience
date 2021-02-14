@@ -2,8 +2,14 @@
 
 findThisFile() {
   fileType=$2
+  pattern=$1
 
-  find . -iregex $1 -type ${fileType:-f} -print
+  if [[ -z $pattern ]];
+  then
+	echo "Please provide a pattern to use in the search"
+  else
+	find . -iregex $pattern -type ${fileType:-f} -print
+  fi
 }
 
 makeDirectoryAndEnter() {
