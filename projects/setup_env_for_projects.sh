@@ -58,7 +58,7 @@ goToStephMicroservices() {
 
 	open -a "Docker"
 
-	sleep 2m
+	sleep 3m
 
 	open "https://www.udemy.com/course/microservices-with-node-js-and-react/learn"
 
