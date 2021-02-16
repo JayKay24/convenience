@@ -49,6 +49,8 @@ goToAlgorithms() {
 goToStephMicroservices() {
   STEPH_GRIDER_MICROSERVICES="$PERSONAL_LEARNING/microservices/ticketing"
   TO_SLEEP=$1
+  jestUrl="https://flaviocopes.com/jest/"
+  stephGriderUdemy="https://www.udemy.com/course/microservices-with-node-js-and-react/learn"
 
   cd $STEPH_GRIDER_MICROSERVICES
 
@@ -60,7 +62,9 @@ goToStephMicroservices() {
 
 	sleep 3m
 
-	open "https://www.udemy.com/course/microservices-with-node-js-and-react/learn"
+	open $stephGriderUdemy
+
+	open $jestUrl
 
 	code .
 
