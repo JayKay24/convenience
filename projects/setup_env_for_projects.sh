@@ -15,6 +15,8 @@ goToReactTypescript() {
   open $BOOKS_PATH/architecures/front-end/react/fullstack-react-with-typescript-book-r5-basic.epub
 
   code .
+
+  nvm use "10.23.2"
 }
 
 goToNodeJSAutomation() {
