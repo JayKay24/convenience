@@ -60,6 +60,8 @@ goToStephMicroservices() {
   then
 	open -a "Postman"
 
+	open -a "DevDocs"
+
 	open -a "Docker"
 
 	sleep 3m
