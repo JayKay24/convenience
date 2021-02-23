@@ -56,6 +56,8 @@ goToStephMicroservices() {
 
   cd $STEPH_GRIDER_MICROSERVICES
 
+  nvm use "v10.23.2"
+
   if [[ -n $TO_SLEEP ]];
   then
 	open -a "Postman"
