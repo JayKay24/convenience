@@ -39,8 +39,6 @@ searchAndReplace() {
   pattern=$1
   fileToUse=$2
 
-  echo $pattern $replaceWith
-
   if [[ -n $pattern ]] && [[ -n $fileToUse ]];
   then
 	sed -e "s/$pattern/g" $fileToUse
