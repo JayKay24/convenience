@@ -8,6 +8,7 @@ export DOWNLOADS="$HOME/Downloads"
 alias goToBooks="cd $HOME/Downloads/books"
 alias goToProgrammersIdeaBook="source $CONVENIENCE_DIR/programmers_idea_book/setup_workspace_for_idea_book.sh"
 alias setUpProgrammersIdeaBookEnvironment="source $CONVENIENCE_DIR/programmers_idea_book/tools/config-environment.sh"
+alias installDockerAndKubernetes="source $CONVENIENCE_DIR/setup_docker_and_kubernetes.sh"
 
 # my custom tools
 source "$CONVENIENCE_DIR/tools/my_custom_tools.sh"
