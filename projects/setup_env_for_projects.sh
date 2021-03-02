@@ -39,11 +39,17 @@ goToMaxNode() {
 
 goToAlgorithms() {
   ALGO_PATH="$PERSONAL_LEARNING/algorithms_and_data_structures/coding_challenges"
-  UDEMY="https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/learn"
+  declare -a urls
+  urls+=("https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/learn")
+  urls+=("https://www.udemy.com/course/master-the-coding-interview-data-structures-algorithms/learn")
+
+  for url in "${urls[@]}";
+  do
+	open $url
+  done
+
 
   cd $ALGO_PATH
-
-  open $UDEMY
 
   code .
 }
