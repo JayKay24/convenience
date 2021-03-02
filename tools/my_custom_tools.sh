@@ -63,3 +63,18 @@ listDirAndSearch() {
 	echo "Please provide the pattern to use in the search"
   fi
 }
+
+loopOutputAndDoCommand() {
+  command=$1
+
+  if [[ -z $command ]];
+  then
+	echo "No command to perform action on loop"
+  else
+	while IFS= read -r filePath;
+	do
+	  echo "File Path: $filePath"
+	  eval $command $filePath
+	done
+  fi
+}
