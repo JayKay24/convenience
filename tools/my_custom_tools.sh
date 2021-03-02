@@ -73,7 +73,6 @@ loopOutputAndDoCommand() {
   else
 	while IFS= read -r filePath;
 	do
-	  echo "File Path: $filePath"
 	  eval $command $filePath
 	done
   fi
