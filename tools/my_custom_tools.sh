@@ -89,7 +89,7 @@ loopOutputAndDoCommand() {
     then
       while IFS= read -r filePath;
       do
-        if [[ -f $filePath ]];
+        if [[ -f $filePath ]] || [[ -d $filePath ]];
         then
           eval $cmd $filePath
         fi
