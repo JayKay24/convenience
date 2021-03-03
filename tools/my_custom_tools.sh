@@ -5,11 +5,18 @@ findThisFile() {
   pattern=$2
   fileType=$3
 
+  if [[ $# < 3 ]];
+  then
+    pattern=$1
+    fileType=$2
+    directory=""
+  fi
+
   if [[ -z $pattern ]];
   then
-	echo "Please provide a pattern to use in the search"
+	  echo "Please provide a pattern to use in the search"
   else
-	find ${directory:-"."} -iregex $pattern -type ${fileType:-f} -print
+	  find ${directory:-.} -iregex $pattern -type ${fileType:-f} -print
   fi
 }
 
@@ -18,9 +25,9 @@ makeDirectoryAndEnter() {
 
   if [[ -n $name ]];
   then
-	mkdir $name && cd $_
+	  mkdir $name && cd $_
   else
-	echo "Please provide a directory name"
+	  echo "Please provide a directory name"
   fi
 }
 
@@ -30,14 +37,14 @@ searchForThisPhrase() {
 
   if [[ -n $pattern ]] && [[ -n $fileToSearch ]];
   then
-	if [[ -f $fileToSearch ]];
-	then
-	  grep -inE $pattern $fileToSearch
-	else
-	  echo "File does not exist"
-	fi
+    if [[ -f $fileToSearch ]];
+    then
+      grep -inE $pattern $fileToSearch
+    else
+      echo "File does not exist"
+    fi
   else
-	echo "Please provide both a regex pattern and file to use in the search"
+	  echo "Please provide both a regex pattern and file to use in the search"
   fi
 }
 
@@ -47,9 +54,9 @@ searchAndReplace() {
 
   if [[ -n $pattern ]] && [[ -n $fileToUse ]];
   then
-	sed -e "s/$pattern/g" $fileToUse
+	  sed -e "s/$pattern/g" $fileToUse
   else
-	echo "Please provide the pattern and file to use"
+	  echo "Please provide the pattern and file to use"
   fi
 }
 
@@ -64,26 +71,41 @@ listDirAndSearch() {
 
   if [[ -n $pattern ]];
   then
-	ls -lap | grep -inE $pattern
+	  ls -lap | grep -inE $pattern
   else
-	echo "Please provide the pattern to use in the search"
+	  echo "Please provide the pattern to use in the search"
   fi
 }
 
 loopOutputAndDoCommand() {
-  command=$1
+  cmd=$1
+  numTimes=$2
 
-  if [[ -z $command ]];
+  if [[ $# -eq 0 ]];
   then
-	echo "No command to perform action on loop"
+	  echo "No command to perform action on loop"
   else
-	while IFS= read -r filePath;
-	do
-	  if [[ -f $filePath ]];
-	  then
-		eval $command $filePath
-	  fi
-	done
+    if [[ $# < 2 ]];
+    then
+      while IFS= read -r filePath;
+      do
+        if [[ -f $filePath ]];
+        then
+          eval $cmd $filePath
+        fi
+      done
+    else
+      if [[ ! $numTimes =~ ^[0-9]+$ ]];
+      then
+        echo "Please provide a valid number of times"
+      else
+        numTimes=$(( numTimes + 0 ))
+        for i in {1..$numTimes};
+        do
+          eval $cmd
+        done
+      fi
+    fi
   fi
 }
 
@@ -92,15 +114,15 @@ copyInBulk() {
 
   if [[ -n $destination ]];
   then
-	while IFS= read -r filePath;
-	do
-	  if [[ -f $filePath ]];
-	  then
-		cp -Rv $filePath $destination
-	  fi
-	done
+    while IFS= read -r filePath;
+    do
+      if [[ -f $filePath ]] && [[ -d $destination ]];
+      then
+        cp -Rv $filePath $destination
+      fi
+    done
   else
-	echo "Please provide a destination directory"
+	  echo "Please provide a destination directory"
   fi
  }
 
@@ -109,15 +131,15 @@ moveInBulk() {
 
   if [[ -n $destination ]];
   then
-	while IFS= read -r filePath;
-	do
-	  if [[ -f $filePath ]];
-	  then
-		mv -v $filePath $destination
-	  fi
-	done
+    while IFS= read -r filePath;
+    do
+      if [[ -f $filePath ]] && [[ -d $destination ]];
+      then
+        mv -v $filePath $destination
+      fi
+    done
   else
-	echo "Please provide a destination directory"
+	  echo "Please provide a destination directory"
   fi
 }
 
