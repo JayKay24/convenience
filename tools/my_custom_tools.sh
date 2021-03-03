@@ -1,14 +1,15 @@
 #!/usr/bin/env bash
 
 findThisFile() {
-  fileType=$2
-  pattern=$1
+  directory=$1
+  pattern=$2
+  fileType=$3
 
   if [[ -z $pattern ]];
   then
 	echo "Please provide a pattern to use in the search"
   else
-	find . -iregex $pattern -type ${fileType:-f} -print
+	find ${directory:-"."} -iregex $pattern -type ${fileType:-f} -print
   fi
 }
 
@@ -29,7 +30,12 @@ searchForThisPhrase() {
 
   if [[ -n $pattern ]] && [[ -n $fileToSearch ]];
   then
-	grep -inE $pattern $fileToSearch
+	if [[ -f $fileToSearch ]];
+	then
+	  grep -inE $pattern $fileToSearch
+	else
+	  echo "File does not exist"
+	fi
   else
 	echo "Please provide both a regex pattern and file to use in the search"
   fi
@@ -73,7 +79,46 @@ loopOutputAndDoCommand() {
   else
 	while IFS= read -r filePath;
 	do
-	  eval $command $filePath
+	  if [[ -f $filePath ]];
+	  then
+		eval $command $filePath
+	  fi
 	done
   fi
 }
+
+copyInBulk() {
+  destination=$1
+
+  if [[ -n $destination ]];
+  then
+	while IFS= read -r filePath;
+	do
+	  if [[ -f $filePath ]];
+	  then
+		cp -Rv $filePath $destination
+	  fi
+	done
+  else
+	echo "Please provide a destination directory"
+  fi
+ }
+
+moveInBulk() {
+  destination=$1
+
+  if [[ -n $destination ]];
+  then
+	while IFS= read -r filePath;
+	do
+	  if [[ -f $filePath ]];
+	  then
+		mv -v $filePath $destination
+	  fi
+	done
+  else
+	echo "Please provide a destination directory"
+  fi
+}
+
+
