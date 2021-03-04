@@ -24,3 +24,7 @@ openDistributedSystemsWithNodeJs() {
   open "$BOOKS_PATH/architecures/backend/nodeJs/distributed-systems-nodejs-enterprise-ready.epub"
 }
 
+openProgrammingInterviewsExposed() {
+  open "$BOOKS_PATH/software_development/programming-interviews-exposed-4th.epub"
+}
+

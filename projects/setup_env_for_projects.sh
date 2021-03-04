@@ -56,9 +56,11 @@ goToAlgorithms() {
   ALGO_PATH="$PERSONAL_LEARNING/algorithms_and_data_structures/coding_challenges"
   faang="https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/learn"
   andrei_coding_interview="https://www.udemy.com/course/master-the-coding-interview-data-structures-algorithms/learn"
+  colt_steel_algo="https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/learn/"
+  leetcode="https://leetcode.com/"
 
   declare -a urls
-  urls+=($faang $andrei_coding_interview)
+  urls+=($faang $andrei_coding_interview $colt_steel_algo $leetcode)
 
   cd $ALGO_PATH
 
