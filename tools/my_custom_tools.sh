@@ -29,56 +29,9 @@ makeDirectoryAndEnter() {
 
   if [[ -n $name ]];
   then
-	  mkdir -p $name && cd $_
+	  mkdir -p $name && cd $name
   else
 	  echo "Please provide a directory name"
-  fi
-}
-
-searchForThisPhrase() {
-  pattern=""
-  fileToSearch=""
-
-  optString="p:f:"
-
-  while getopts $optString opt
-  do
-    case $opt in
-      p) pattern=$OPTARG ;;
-      f) fileToSearch=$OPTARG ;;
-    esac
-  done
-
-  if [[ ! -f $fileToSearch ]];
-  then
-    echo "File does not exist"
-  elif [[ -z $pattern ]];
-  then
-    echo "Please provide a pattern to use in the search"
-  else
-    grep -inE $pattern $fileToSearch
-  fi
-}
-
-searchAndReplace() {
-  pattern=""
-  fileToUse=""
-
-  optString="p:f:"
-
-  while getopts $optString opt
-  do
-    case $opt in
-      p) pattern=$OPTARG ;;
-      f) fileToUse=$OPTARG ;;
-    esac
-  done
-
-  if [[ -n $pattern ]] && [[ -n $fileToUse ]];
-  then
-	  sed -e "s/$pattern/g" $fileToUse
-  else
-	  echo "Please provide the pattern and file to use"
   fi
 }
 
@@ -86,17 +39,6 @@ getCurrentWeather() {
   city=$1
 
   curl --max-time 1 "http://wttr.in/${city:-'nairobi,ke'}"
-}
-
-listDirAndSearch() {
-  pattern=$1
-
-  if [[ -n $pattern ]];
-  then
-	  ls -lap | grep -inE $pattern
-  else
-	  echo "Please provide the pattern to use in the search"
-  fi
 }
 
 loopOutputAndDoCommand() {
@@ -124,6 +66,8 @@ loopOutputAndDoCommand() {
         if [[ -f $filePath ]] || [[ -d $filePath ]];
         then
           eval $cmd $filePath
+        else
+          break
         fi
       done
     else
