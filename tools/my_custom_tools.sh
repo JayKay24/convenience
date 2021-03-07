@@ -1,22 +1,26 @@
 #!/usr/bin/env bash
 
 findThisFile() {
-  directory=$1
-  pattern=$2
-  fileType=$3
+  directory=""
+  pattern=""
+  fileType=""
 
-  if [[ $# < 3 ]];
-  then
-    pattern=$1
-    fileType=$2
-    directory=""
-  fi
+  optString="d:p:f:"
+
+  while getopts $optString opt
+  do
+    case $opt in
+      d) directory=$OPTARG ;;
+      p) pattern=$OPTARG ;;
+      f) fileType=$OPTARG ;;
+    esac
+  done
 
   if [[ -z $pattern ]];
   then
-	  echo "Please provide a pattern to use in the search"
+    echo "Please provide a pattern to use in the search"
   else
-	  find ${directory:-.} -iregex $pattern -type ${fileType:-f} -print
+    find ${directory:-.} -iregex $pattern -type ${fileType:-f} -print
   fi
 }
 
@@ -25,32 +29,50 @@ makeDirectoryAndEnter() {
 
   if [[ -n $name ]];
   then
-	  mkdir $name && cd $_
+	  mkdir -p $name && cd $_
   else
 	  echo "Please provide a directory name"
   fi
 }
 
 searchForThisPhrase() {
-  pattern=$1
-  fileToSearch=$2
+  pattern=""
+  fileToSearch=""
 
-  if [[ -n $pattern ]] && [[ -n $fileToSearch ]];
+  optString="p:f:"
+
+  while getopts $optString opt
+  do
+    case $opt in
+      p) pattern=$OPTARG ;;
+      f) fileToSearch=$OPTARG ;;
+    esac
+  done
+
+  if [[ ! -f $fileToSearch ]];
   then
-    if [[ -f $fileToSearch ]];
-    then
-      grep -inE $pattern $fileToSearch
-    else
-      echo "File does not exist"
-    fi
+    echo "File does not exist"
+  elif [[ -z $pattern ]];
+  then
+    echo "Please provide a pattern to use in the search"
   else
-	  echo "Please provide both a regex pattern and file to use in the search"
+    grep -inE $pattern $fileToSearch
   fi
 }
 
 searchAndReplace() {
-  pattern=$1
-  fileToUse=$2
+  pattern=""
+  fileToUse=""
+
+  optString="p:f:"
+
+  while getopts $optString opt
+  do
+    case $opt in
+      p) pattern=$OPTARG ;;
+      f) fileToUse=$OPTARG ;;
+    esac
+  done
 
   if [[ -n $pattern ]] && [[ -n $fileToUse ]];
   then
@@ -78,14 +100,24 @@ listDirAndSearch() {
 }
 
 loopOutputAndDoCommand() {
-  cmd=$1
-  numTimes=$2
+  cmd=""
+  numTimes=""
 
-  if [[ $# -eq 0 ]];
+  optString="c:n:"
+
+  while getopts $optString opt
+  do
+    case $opt in
+      c) cmd=$OPTARG ;;
+      n) numTimes=$OPTARG ;;
+    esac
+  done
+
+  if [[ -z $cmd ]];
   then
 	  echo "No command to perform action on loop"
   else
-    if [[ $# < 2 ]];
+    if [[ -z $numTimes ]];
     then
       while IFS= read -r filePath;
       do
