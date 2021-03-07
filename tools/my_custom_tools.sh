@@ -4,23 +4,28 @@ findThisFile() {
   directory=""
   pattern=""
   fileType=""
+  ignoreDir=""
 
-  optString="d:p:f:"
+  optString="d:p:fi:"
 
   while getopts $optString opt
   do
     case $opt in
       d) directory=$OPTARG ;;
       p) pattern=$OPTARG ;;
-      f) fileType=$OPTARG ;;
+      i) ignoreDir=$OPTARG ;;
+      f) fileType=d ;;
     esac
   done
 
   if [[ -z $pattern ]];
   then
     echo "Please provide a pattern to use in the search"
-  else
+  elif [[ -z $ignoreDir ]];
+  then
     find ${directory:-.} -iregex $pattern -type ${fileType:-f} -print
+  else
+    find ${directory:-.} -type ${fileType:-f} -iregex $pattern ! -path $ignoreDir
   fi
 }
 
