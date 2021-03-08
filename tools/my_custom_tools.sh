@@ -49,14 +49,16 @@ getCurrentWeather() {
 loopOutputAndDoCommand() {
   cmd=""
   numTimes=""
+  srcInput=""
 
-  optString="c:n:"
+  optString="c:n:o:"
 
   while getopts $optString opt
   do
     case $opt in
       c) cmd=$OPTARG ;;
       n) numTimes=$OPTARG ;;
+      o) srcInput=$OPTARG ;;
     esac
   done
 
@@ -66,22 +68,26 @@ loopOutputAndDoCommand() {
   else
     if [[ -z $numTimes ]];
     then
-      while IFS= read -r filePath;
-      do
-        if [[ -f $filePath ]] || [[ -d $filePath ]];
-        then
-          eval $cmd $filePath
-        else
-          break
-        fi
-      done
+      if [[ -n $srcInput ]];
+      then
+        eval $srcInput |
+        while IFS= read -r filePath;
+        do
+          if [[ -f $filePath ]] || [[ -d $filePath ]];
+          then
+            eval "$cmd" "$filePath"
+          fi
+        done
+      else
+        echo "No output to read from and feed the loop"
+      fi
     else
       if [[ ! $numTimes =~ ^[0-9]+$ ]];
       then
         echo "Please provide a valid number of times"
       else
         numTimes=$(( numTimes + 0 ))
-        for i in {1..$numTimes};
+        for num in {1..$numTimes};
         do
           eval $cmd
         done
@@ -93,35 +99,55 @@ loopOutputAndDoCommand() {
 copyInBulk() {
   destination=$1
 
-  if [[ -n $destination ]];
+  optString="d:s:"
+
+  while getopts $optString opt
+  do
+    case $opt in
+      d) destination=$OPTARG ;;
+      s) srcInput=$OPTARG ;;
+    esac
+  done
+
+  if [[ -d $destination ]];
   then
+    eval $srcInput |
     while IFS= read -r filePath;
     do
-      if [[ -f $filePath ]] && [[ -d $destination ]];
+      if [[ -f $filePath ]];
       then
-        cp -Rv $filePath $destination
+        cp -Rv "$filePath" "$destination"
       fi
     done
   else
-	  echo "Please provide a destination directory"
+	  echo "Please provide a valid destination directory"
   fi
  }
 
 moveInBulk() {
   destination=$1
 
-  if [[ -n $destination ]];
+  optString="d:s:"
+
+  while getopts $optString opt
+  do
+    case $opt in
+      d) destination=$OPTARG ;;
+      s) srcInput=$OPTARG ;;
+    esac
+  done
+
+  if [[ -d $destination ]];
   then
+    eval $srcInput |
     while IFS= read -r filePath;
     do
-      if [[ -f $filePath ]] && [[ -d $destination ]];
+      if [[ -f $filePath ]];
       then
-        mv -v $filePath $destination
+        mv -v "$filePath" "$destination"
       fi
     done
   else
-	  echo "Please provide a destination directory"
+	  echo "Please provide a valid destination directory"
   fi
 }
-
-
