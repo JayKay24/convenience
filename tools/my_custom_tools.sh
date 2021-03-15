@@ -70,14 +70,16 @@ loopOutputAndDoCommand() {
     then
       if [[ -n $srcInput ]];
       then
-        eval $srcInput |
+        eval $srcInput > $CONVENIENCE_DIR/output_files/output.txt
         while IFS= read -r filePath;
         do
           if [[ -f $filePath ]] || [[ -d $filePath ]];
           then
-            eval "$cmd" "$filePath"
+            # fp="${filePath//" "/\\" "}"
+            doThis="$cmd \"$filePath\""
+            eval "$doThis"
           fi
-        done
+        done < $CONVENIENCE_DIR/output_files/output.txt
       else
         echo "No output to read from and feed the loop"
       fi
