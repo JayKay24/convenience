@@ -34,7 +34,7 @@ makeDirectoryAndEnter() {
 
   if [[ -n $name ]];
   then
-	  mkdir -p $name && cd $name
+	  mkdir -p "\"$name\"" && cd "\"$name\""
   else
 	  echo "Please provide a directory name"
   fi
@@ -51,14 +51,14 @@ loopOutputAndDoCommand() {
   numTimes=""
   srcInput=""
 
-  optString="c:n:o:"
+  optString="c:n:s:"
 
   while getopts $optString opt
   do
     case $opt in
       c) cmd=$OPTARG ;;
       n) numTimes=$OPTARG ;;
-      o) srcInput=$OPTARG ;;
+      s) srcInput=$OPTARG ;;
     esac
   done
 
@@ -70,16 +70,16 @@ loopOutputAndDoCommand() {
     then
       if [[ -n $srcInput ]];
       then
-        eval $srcInput > $CONVENIENCE_DIR/output_files/output.txt
+        eval $srcInput |
         while IFS= read -r filePath;
         do
           if [[ -f $filePath ]] || [[ -d $filePath ]];
           then
             # fp="${filePath//" "/\\" "}"
             doThis="$cmd \"$filePath\""
-            eval "$doThis"
+            eval $doThis
           fi
-        done < $CONVENIENCE_DIR/output_files/output.txt
+        done
       else
         echo "No output to read from and feed the loop"
       fi
@@ -118,7 +118,7 @@ copyInBulk() {
     do
       if [[ -f $filePath ]];
       then
-        cp -Rv "$filePath" "$destination"
+        cp -Rv "\"$filePath\"" "\"$destination\""
       fi
     done
   else
@@ -146,7 +146,7 @@ moveInBulk() {
     do
       if [[ -f $filePath ]];
       then
-        mv -v "$filePath" "$destination"
+        mv -v "\"$filePath\"" "\"$destination\""
       fi
     done
   else
