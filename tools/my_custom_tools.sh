@@ -118,7 +118,7 @@ copyInBulk() {
     do
       if [[ -f $filePath ]];
       then
-        cp -Rv "\"$filePath\"" "\"$destination\""
+        cp -Rv \"$filePath\" \"$destination\"
       fi
     done
   else
@@ -146,7 +146,7 @@ moveInBulk() {
     do
       if [[ -f $filePath ]];
       then
-        mv -v "\"$filePath\"" "\"$destination\""
+        mv -v \"$filePath\" \"$destination\"
       fi
     done
   else
