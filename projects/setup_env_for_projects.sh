@@ -16,7 +16,7 @@ goToReactTypescript() {
 
   if [[ -n $setup ]];
   then
-    open $BOOKS_PATH/architecures/front-end/react/fullstack-react-with-typescript-book-r5-basic.epub
+    # open $BOOKS_PATH/architecures/front-end/react/fullstack-react-with-typescript-book-r5-basic.epub
 
     code .
   fi

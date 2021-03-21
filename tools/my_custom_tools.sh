@@ -34,7 +34,7 @@ makeDirectoryAndEnter() {
 
   if [[ -n $name ]];
   then
-	  mkdir -p "\"$name\"" && cd "\"$name\""
+	  mkdir -p $name && cd $name
   else
 	  echo "Please provide a directory name"
   fi
@@ -118,7 +118,8 @@ copyInBulk() {
     do
       if [[ -f $filePath ]];
       then
-        cp -Rv \"$filePath\" \"$destination\"
+        cmd="cp -Rv \"$filePath\" \"destination\""
+        eval $cmd
       fi
     done
   else
@@ -146,7 +147,8 @@ moveInBulk() {
     do
       if [[ -f $filePath ]];
       then
-        mv -v \"$filePath\" \"$destination\"
+        cmd="mv -v \"$filePath\" \"destination\""
+        eval $cmd
       fi
     done
   else
