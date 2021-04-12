@@ -64,6 +64,8 @@ goToAlgorithms() {
 
   cd $ALGO_PATH
 
+  nvm use "v14.15.0"
+
   if [[ -n $setup ]];
   then
     for url in "${urls[@]}";
@@ -114,6 +116,8 @@ goToDistributedSystemsWithNodeJs() {
   DISTR_SYS_PATH="$PERSONAL_LEARNING/javascript/nodeJS/distributed_systems_with_nodejs"
 
   cd $DISTR_SYS_PATH
+
+  nvm use "v14.15.0"
 
   if [[ -n $setup ]];
   then

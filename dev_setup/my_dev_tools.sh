@@ -4,6 +4,7 @@ curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh
 
 brew install wget
 brew install curl
+brew install pstree
 
 brew install --cask iterm2
 
