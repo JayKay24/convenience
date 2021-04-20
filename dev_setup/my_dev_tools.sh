@@ -25,6 +25,7 @@ brew install postgresql
 
 brew install tree
 brew install speedtest-cli
+brew install watch
 
 brew install --cask docker
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.44.0/deploy/static/provider/cloud/deploy.yaml
