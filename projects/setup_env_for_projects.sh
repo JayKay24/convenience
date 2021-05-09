@@ -113,7 +113,7 @@ goToStephMicroservices() {
 
 goToDistributedSystemsWithNodeJs() {
   setup=$1
-  DISTR_SYS_PATH="$PERSONAL_LEARNING/javascript/nodeJS/distributed_systems_with_nodejs"
+  DISTR_SYS_PATH="$PERSONAL_LEARNING/javascript/nodeJS/distributed_sys_with_nodejs/distributed_systems_with_nodejs"
 
   cd $DISTR_SYS_PATH
 
