@@ -126,3 +126,22 @@ goToDistributedSystemsWithNodeJs() {
     code .
   fi
 }
+
+goToSweepSouthAssignment() {
+  setup=$1
+  PROJECT_URL="$PERSONAL_LEARNING/SweepSouth_Assignment/"
+
+  cd $PROJECT_URL
+
+  nvm use "v14.15.0"
+
+  if [[ -n $setup ]];
+  then
+	code .
+
+	open -a "Postman"
+	open -a "DevDocs"
+	open -a "Docker"
+  fi
+}
+
