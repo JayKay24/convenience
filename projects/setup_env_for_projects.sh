@@ -9,21 +9,6 @@ goToSolidBook() {
   code .
 }
 
-goToReactTypescript() {
-  setup=$1
-
-  cd $PERSONAL_LEARNING/javascript/react/react_typescript
-
-  if [[ -n $setup ]];
-  then
-    # open $BOOKS_PATH/architecures/front-end/react/fullstack-react-with-typescript-book-r5-basic.epub
-
-    code .
-  fi
-
-  nvm use "10.23.2"
-}
-
 goToNodeJSAutomation() {
   setup=$1
 
@@ -132,6 +117,7 @@ goToSweepSouthAssignment() {
   PROJECT_URL="$PERSONAL_LEARNING/SweepSouth_Assignment/"
 
   cd $PROJECT_URL
+  . ./common_operations.sh
 
   nvm use "v14.15.0"
 
@@ -145,3 +131,19 @@ goToSweepSouthAssignment() {
   fi
 }
 
+goToReactGraphQL() {
+  setup=$1
+  PROJECT_URL="$PERSONAL_LEARNING/javascript/react/React-GraphQL/"
+
+  cd $PROJECT_URL
+
+  nvm use "v14.15.0"
+
+  if [[ -n $setup ]];
+  then
+	code .
+	open -a "Postman"
+	open -a "DevDocs"
+	open -a "Docker"
+  fi
+}
