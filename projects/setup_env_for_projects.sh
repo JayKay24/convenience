@@ -107,7 +107,8 @@ goToDistributedSystemsWithNodeJs() {
   if [[ -n $setup ]];
   then
     openDistributedSystemsWithNodeJs
-
+	open -a "Docker"
+	open -a "DevDocs"
     code .
   fi
 }
