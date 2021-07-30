@@ -148,3 +148,19 @@ goToReactGraphQL() {
 	open -a "Docker"
   fi
 }
+
+goToCleanJavascript() {
+  setup=$!
+  PROJECT_URL="$PERSONAL_LEARNING/javascript/clean_javascript/"
+
+  cd $PROJECT_URL
+
+  nvm use "v14.15.0"
+
+  if [[ -n $setup ]];
+  then
+	code .
+	open -a "DevDocs"
+  fi
+}
+
