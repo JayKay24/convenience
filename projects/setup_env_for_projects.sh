@@ -150,7 +150,7 @@ goToReactGraphQL() {
 }
 
 goToCleanJavascript() {
-  setup=$!
+  setup=$1
   PROJECT_URL="$PERSONAL_LEARNING/javascript/clean_javascript/"
 
   cd $PROJECT_URL
@@ -161,6 +161,21 @@ goToCleanJavascript() {
   then
 	code .
 	open -a "DevDocs"
+  fi
+}
+
+goToDesignPatternsInTypescript() {
+  setup=$1
+  PROJECT_URL="$PERSONAL_LEARNING/javascript/typescript/design_patterns_typescript"
+
+  cd $PROJECT_URL
+
+  nvm use "v14.15.0"
+
+  if [[ -n $setup ]];
+  then
+	code .
+	open -a "Kindle"
   fi
 }
 
