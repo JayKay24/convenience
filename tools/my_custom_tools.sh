@@ -155,3 +155,13 @@ moveInBulk() {
 	  echo "Please provide a valid destination directory"
   fi
 }
+
+setUpTypescriptESLintPrettierConfig() {
+  nvm use "v14.15.0"
+
+  tsc --init
+
+  cp $CONVENIENCE_DIR/tools/common_config_files/* .
+
+  npm i
+}

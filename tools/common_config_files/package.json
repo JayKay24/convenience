@@ -1,0 +1,41 @@
+{
+  "name": "design_patterns_typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run build && node ./dist/test.js",
+    "build": "npm run clean && tsc -p src/",
+    "build:dev": "npm run prettier-format && npm run build",
+    "build:watch": "tsc -p src/ -w",
+    "clean": "rimraf dist/",
+    "lint": "eslint src/ --ext .ts",
+    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JayKay24/design_patterns_in_typescript.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JayKay24/design_patterns_in_typescript/issues"
+  },
+  "homepage": "https://github.com/JayKay24/design_patterns_in_typescript#readme",
+  "dependencies": {
+    "typescript": "^4.4.2"
+  },
+  "devDependencies": {
+    "@types/node": "^16.7.5",
+    "@types/rimraf": "^3.0.2",
+    "@typescript-eslint/eslint-plugin": "^4.29.3",
+    "@typescript-eslint/parser": "^4.29.3",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.1",
+    "prettier": "^2.3.2",
+    "rimraf": "^3.0.2"
+  }
+}
