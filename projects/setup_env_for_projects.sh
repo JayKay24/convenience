@@ -176,6 +176,7 @@ goToDesignPatternsInTypescript() {
   then
 	code .
 	open -a "Kindle"
+	open -a "DevDocs"
   fi
 }
 
