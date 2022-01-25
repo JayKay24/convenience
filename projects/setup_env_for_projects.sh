@@ -210,3 +210,18 @@ goToGameOfLearnersAssignments() {
   fi
 }
 
+gotoGitForProgrammers() {
+  setup=$1
+  PROJECT_URL="$PERSONAL_LEARNING/playground/git-for-programmers"
+
+  cd $PROJECT_URL
+
+  nvm use "v14.15.0"
+
+  if [[ -n $setup ]];
+  then
+	code .
+	open -a "DevDocs"
+  fi
+}
+
