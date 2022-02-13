@@ -201,7 +201,7 @@ goToGameOfLearnersAssignments() {
 
   cd $PROJECT_URL
 
-  nvm use "v14.15.0"
+  nvm use $LTS_NODE_VERSION
 
   if [[ -n $setup ]];
   then
@@ -216,7 +216,7 @@ gotoGitForProgrammers() {
 
   cd $PROJECT_URL
 
-  nvm use "v14.15.0"
+  nvm use $LTS_NODE_VERSION
 
   if [[ -n $setup ]];
   then
@@ -225,3 +225,17 @@ gotoGitForProgrammers() {
   fi
 }
 
+gotoAdvancedWebDevWithReact() {
+  setup=$1
+  PROJECT_URL="$PERSONAL_LEARNING/javascript/react/advanced-web-development-with-react"
+
+  cd $PROJECT_URL
+
+  nvm use $LTS_NODE_VERSION
+
+  if [[ -n $setup ]];
+  then
+	code .
+	open -a "DevDocs"
+  fi
+}
