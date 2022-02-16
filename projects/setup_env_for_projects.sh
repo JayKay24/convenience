@@ -225,9 +225,9 @@ gotoGitForProgrammers() {
   fi
 }
 
-gotoAdvancedWebDevWithReact() {
+gotoRoadToReact() {
   setup=$1
-  PROJECT_URL="$PERSONAL_LEARNING/javascript/react/advanced-web-development-with-react"
+  PROJECT_URL="$PERSONAL_LEARNING/javascript/react/road-to-react"
 
   cd $PROJECT_URL
 
