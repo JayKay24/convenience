@@ -239,3 +239,25 @@ gotoRoadToReact() {
 	open -a "DevDocs"
   fi
 }
+
+gotoSimplifyTestingWithReact() {
+  setup=$1
+
+  PROJECT_DIR_NAME="simplify-testing-with-react"
+  PROJECT_URL="$PERSONAL_LEARNING/javascript/react/$PROJECT_DIR_NAME"
+
+  if [[ ! -d $PROJECT_URL ]];
+  then
+	mkdir "$PROJECT_URL"
+  fi
+
+  cd $PROJECT_URL
+
+  nvm use $LTS_NODE_VERSION
+
+  if [[ -n $setup ]];
+  then
+	code .
+	open -a "DevDocs"
+  fi
+}
