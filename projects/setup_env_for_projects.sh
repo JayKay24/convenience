@@ -261,3 +261,19 @@ gotoSimplifyTestingWithReact() {
 	open -a "DevDocs"
   fi
 }
+
+gotoElloAssignment() {
+  setup=$1
+
+  PROJECT_URL="$HOME/Desktop/ElloAssignment/ello-assignment"
+
+  cd $PROJECT_URL
+
+  nvm use $LTS_NODE_VERSION
+
+  if [[ -n $setup ]];
+  then
+	code .
+	open -a "DevDocs"
+  fi
+}
