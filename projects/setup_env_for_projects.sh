@@ -262,10 +262,10 @@ gotoSimplifyTestingWithReact() {
   fi
 }
 
-gotoElloAssignment() {
+gotoParitiAssignment() {
   setup=$1
 
-  PROJECT_URL="$HOME/Desktop/ElloAssignment/ello-assignment"
+  PROJECT_URL="$HOME/Desktop/ParitiAssignment/Pariti_assignment"
 
   cd $PROJECT_URL
 
@@ -275,5 +275,6 @@ gotoElloAssignment() {
   then
 	code .
 	open -a "DevDocs"
+	open -a "Postman"
   fi
 }
