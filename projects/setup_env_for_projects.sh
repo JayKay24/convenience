@@ -278,3 +278,22 @@ gotoParitiAssignment() {
 	open -a "Postman"
   fi
 }
+
+gotoIotaAssignment() {
+	setup=$1
+
+	PROJECT_URL="$HOME/Desktop/IOTA_Assignment"
+
+	cd $PROJECT_URL
+
+	nvm use $LTS_NODE_VERSION
+
+	if [[ -n $setup ]];
+	then
+		code .
+		open -a "DevDocs"
+		open -a "Postman"
+		open -a "Docker"
+	fi
+}
+
