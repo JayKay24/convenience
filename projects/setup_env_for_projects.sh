@@ -262,10 +262,10 @@ gotoSimplifyTestingWithReact() {
   fi
 }
 
-gotoParitiAssignment() {
+gotoMeshery() {
   setup=$1
 
-  PROJECT_URL="$HOME/Desktop/ParitiAssignment/Pariti_assignment"
+  PROJECT_URL="$HOME/Desktop/open-source/meshery"
 
   cd $PROJECT_URL
 
@@ -276,6 +276,7 @@ gotoParitiAssignment() {
 	code .
 	open -a "DevDocs"
 	open -a "Postman"
+	open -a "Docker"
   fi
 }
 

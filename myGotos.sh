@@ -3,7 +3,7 @@ export PERSONAL_LEARNING="$HOME/Desktop/personal_learning"
 export BOOKS_PATH="$HOME/Downloads/books"
 export CONVENIENCE_DIR="$HOME/Desktop/convenience"
 export DOWNLOADS="$HOME/Downloads"
-export LTS_NODE_VERSION="v18.16.0"
+export LTS_NODE_VERSION="v18.17.0"
 
 # my custom aliases for frequently visited projects
 alias goToBooks="cd $HOME/Downloads/books"
